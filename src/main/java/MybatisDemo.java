@@ -26,6 +26,8 @@ public class MybatisDemo {
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         List<Brand> brands = brandMapper.selectAll();
         System.out.println(brands);
+
+
         sqlSession.close();
     }
 }
