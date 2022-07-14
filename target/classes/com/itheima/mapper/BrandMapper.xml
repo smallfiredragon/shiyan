@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.itheima.mapper.BrandMapper">
+<!--    <sql id="brand_column">
+        id,brand_name as brandName, company_name as companyName ,orderd as ordered, description, status
+    </sql>-->
+    <resultMap id="brandResultMap" type="brand">
+        <result column="brand_name" property="brandName"/>
+        <result column="company_name" property="companyName"/>
+        <result column="ordered" property="ordered"/>
+    </resultMap>
+
+
+    <select id="selectAll" resultMap="brandResultMap">
+        select
+        <!--<include refid="brand_column"></include>-->
+        *
+        from tb_brand;
+    </select>
+    <select id="selectById" resultType="brand">
+        select id
+        from tb_brand;
+    </select>
+
+    <insert id="add">
+        insert into tb_brand(id, brand_name, company_name, orderd, description, status)
+        values(#{brandName},#{companyName},#{ordered},#{description},#{status});
+    </insert>
+
+    <update id="update">
+
+    </update>
+</mapper>
